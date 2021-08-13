@@ -22,4 +22,13 @@ class ProdutoController {
         return produtoRepository.save(produto)
     }
 
+    @PutMapping("{id}")
+    fun alter(@PathVariable id: Long, @RequestBody produto: Produto): Produto{
+        if (produtoRepository.existsById(id)) {
+            val safeProduto = produto.copy(id)
+            return produtoRepository.save(safeProduto)
+        }
+        return Produto()
+    }
+
 }

@@ -21,4 +21,13 @@ class ClienteController {
     fun add(@RequestBody cliente: Cliente): Cliente{
         return clienteRepository.save(cliente)
     }
+
+    @PutMapping("{id}")
+    fun alter(@PathVariable id: Long, @RequestBody cliente: Cliente): Cliente{
+        if(clienteRepository.existsById(id)) {
+            val safeCliente = cliente.copy(id)
+            return clienteRepository.save(safeCliente)
+        }
+        return Cliente()
+    }
 }
