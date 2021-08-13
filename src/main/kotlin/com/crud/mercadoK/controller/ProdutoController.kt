@@ -31,4 +31,11 @@ class ProdutoController {
         return Produto()
     }
 
+    @DeleteMapping("{id}")
+    fun delete(@PathVariable id: Long){
+        if (produtoRepository.existsById(id)) {
+            produtoRepository.deleteById(id)
+        }
+    }
+
 }

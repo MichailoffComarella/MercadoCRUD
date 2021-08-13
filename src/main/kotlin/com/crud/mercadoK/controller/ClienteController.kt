@@ -30,4 +30,13 @@ class ClienteController {
         }
         return Cliente()
     }
+
+    @DeleteMapping("{id}")
+    fun delete(@PathVariable id: Long){
+        if (clienteRepository.existsById(id)){
+            clienteRepository.deleteById(id)
+        }
+    }
+
+
 }
