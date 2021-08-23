@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("clientes")
 class ClienteController {
 
+    // oi
+
     @Autowired
     lateinit var clienteRepository: ClienteRepository
 
